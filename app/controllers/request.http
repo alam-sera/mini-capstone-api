@@ -1,0 +1,30 @@
+
+GET http://localhost:3000/products.json 
+
+###
+GET http://localhost:3000/products/40.json 
+
+###
+POST http://localhost:3000/products.json 
+Content-type: application/json
+
+{
+  "name": "orange",
+  "price": "60",
+  "image_url": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ARed_Apple.jpg&psig=AOvVaw2yeteYUvnCj5K0cxGXkSYL&ust=1670528155395000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCPjnk7yg6PsCFQAAAAAdAAAAABAE",
+  "description": "delicious fruit from a tree"
+}
+
+###
+PATCH http://localhost:3000/products/1.json
+Content-type: application/json 
+
+{
+"name": "",
+"price": "",
+"image_url": "https://media.izi.travel/4e9d2b2c-83c3-4a84-8675-7cc276270305/5f063515-609a-4507-92bb-59fdd15b521b_800x600.jpg",
+"description": ""
+}
+
+###
+DELETE http://localhost:3000/products/55.json
