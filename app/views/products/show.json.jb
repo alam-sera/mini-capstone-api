@@ -1,0 +1,9 @@
+{
+  id: @product.id,
+  name: @products.name,
+  description: @products.description,
+  price: @product.price,
+  image_url: @product.image_url,
+  created_at: @product.created_at,
+  updated_at: @product.updated_at
+}

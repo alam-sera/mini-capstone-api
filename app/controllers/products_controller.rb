@@ -1,13 +1,15 @@
 class ProductsController < ApplicationController
   def show
-    number = params[:id]
-    individual_item = Product.find(number)
-    render json: individual_item.as_json(methods: [:friendly_created_at, :is_discounted?])
+    # number = params[:id]
+    # individual_item = Product.find(number)
+    # render json: individual_item.as_json(methods: [:friendly_created_at, :is_discounted?])
+    @product = Product.find_by(params[:id])
+    render "products/show"
   end
 
   def index
     products = Product.all
-    render json: products.as_json
+    render json: product.as_json
   end 
 
   def create
@@ -17,6 +19,11 @@ class ProductsController < ApplicationController
     image_url: params[:image_url], 
     description: params[:description]
     )
+    # if product.save
+    #   render json: product.as_json
+    # else 
+    #   render json: {errors: product.errors.full_messages}
+    # end 
   end 
 
   def update
@@ -26,6 +33,7 @@ class ProductsController < ApplicationController
     product.price = params[:price] || product.price
     product.image_url = params[:image_url] || product.image_url
     product.description = params[:description] || product.description
+    product.stock = params[:stock] || product.stock
     #save update
     product.save
     render json: product.as_json
