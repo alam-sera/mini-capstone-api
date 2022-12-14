@@ -2,14 +2,16 @@ class ProductsController < ApplicationController
   def show
     # number = params[:id]
     # individual_item = Product.find(number)
-    # render json: individual_item.as_json(methods: [:friendly_created_at, :is_discounted?])
-    @product = Product.find_by(params[:id])
+    # render json: individual_item.as_json
+    # (methods: [:friendly_created_at, :is_discounted?, :supplier])
+    @product = Product.find_by(id: params[:id])
     render "products/show"
   end
 
   def index
-    products = Product.all
-    render json: product.as_json
+    @products = Product.all
+    # render json: products
+    render "products/index"
   end 
 
   def create
@@ -19,11 +21,11 @@ class ProductsController < ApplicationController
     image_url: params[:image_url], 
     description: params[:description]
     )
-    # if product.save
-    #   render json: product.as_json
-    # else 
-    #   render json: {errors: product.errors.full_messages}
-    # end 
+    if product.save
+      render json: product.as_json
+    else 
+      render json: {errors: product.errors.full_messages}
+    end 
   end 
 
   def update

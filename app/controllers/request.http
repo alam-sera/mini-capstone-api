@@ -1,10 +1,10 @@
-### 
+### PRODUCT INDEX
 GET http://localhost:3000/products.json 
 
-### 
-GET http://localhost:3000/products/1.json 
+### PRODUCT SHOW
+GET http://localhost:3000/products/5.json
 
-###
+### PRODUCT CREATE
 POST http://localhost:3000/products.json 
 Content-type: application/json
 
@@ -12,20 +12,68 @@ Content-type: application/json
   "name": "water bowl",
   "price": "10",
   "image_url": "",
-  "description": "delicious fruit from a tree",
+  "description": "a bowl used for drinking",
   "stock": "14"
 }
 
-###
+### PRODUCT UPDATE
 PATCH http://localhost:3000/products/1.json
 Content-type: application/json 
 
 {
 "name": "",
 "price": "",
-"image_url": "https://media.izi.travel/4e9d2b2c-83c3-4a84-8675-7cc276270305/5f063515-609a-4507-92bb-59fdd15b521b_800x600.jpg",
+"image_url": "https://media.istockphoto.com/id/1285221381/photo/a-bowl-of-water.jpg?b=1&s=170667a&w=0&k=20&c=TbJ5MdcHvKY6HpTBLJt3HbZy0ZH2DDDFeuOYhJ_dyhU=",
 "description": ""
 }
 
-###
+### PRODUCT DELETE
 DELETE http://localhost:3000/products/55.json
+
+
+
+### SUPPLIER INDEX
+http://localhost:3000/supplier
+
+### SUPPLIER SHOW
+http://localhost:3000/supplier/2
+
+
+
+
+
+
+# #### IMAGE INDEX
+# GET http://localhost:3000/images.json
+
+# ### IMAGE SHOW
+# GET http://localhost:3000/images/1.json
+
+# ### IMAGE CREATE
+# POST http://localhost:3000/images/1.json
+# Content-Type: application/json
+
+# {
+#   "url": "https://media.istockphoto.com/id/1285221381/photo/a-bowl-of-water.jpg?b=1&s=170667a&w=0&k=20&c=TbJ5MdcHvKY6HpTBLJt3HbZy0ZH2DDDFeuOYhJ_dyhU="
+# }
+
+
+
+### USER CREATE
+POST http://localhost:3000/users.json 
+Content-Type: application/json
+
+{
+  "name": "Test name",
+  "email": "test@test.com",
+  "password": "password"
+}
+### USER LOG IN
+### Sessions create (login)
+POST http://localhost:3000/sessions.json
+Content-Type: application/json
+
+{
+  "email": "test@test.com",
+  "password": "password"
+}

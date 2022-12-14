@@ -7,20 +7,24 @@ class Product < ApplicationRecord
     created_at.strftime("%B %e, %Y")
   end
 
-  # def is_discounted?
-  #   if price > 10 
-  #     return true
-  #   else 
-  #     return false
-  #   end 
-  # end
+  def is_discounted?
+    if price > 10 
+      return true
+    else 
+      return false
+    end 
+  end
 
-  # def tax
-  #   price * 0.09
-  # end
+  def tax
+    price * 0.09
+  end
 
-  # def total
-  #   tax + price 
-  # end
+  def total
+    tax + price 
+  end
 
+  belongs_to :products
+  # def supplier
+  #   Supplier.find_by(id: supplier)
+  # end 
 end

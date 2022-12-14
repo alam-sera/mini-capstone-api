@@ -1,9 +1,16 @@
 {
-  id: @product.id,
-  name: @products.name,
-  description: @products.description,
+id: @product.id,
   price: @product.price,
+  description: @product.description,
   image_url: @product.image_url,
+  name: @product.name,
+  tax: @product.tax,
+  total: @product.total,
+  friendly_created_at: @product.friendly_created_at,
+  is_discounted?: @product.is_discounted?,
   created_at: @product.created_at,
-  updated_at: @product.updated_at
+  updated_at: @product.updated_at,
+  stock: @product.stock,
+  supplier: @product.supplier_id
 }
+
