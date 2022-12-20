@@ -21,5 +21,14 @@ Rails.application.routes.draw do
 
 ### LOG IN
   post "/sessions" => "sessions#create"
+
+### ORDER CREATE
+  post "/orders" => "orders#create"
+  get "/orders" => "orders#index"
+  get "/orders/:id" => "orders#show"
+
+### Carted product
+  post "/carted_product" => "carted_product#create"
+  get "carted_product" => "carted_product#index"
 end
 

@@ -1,5 +1,7 @@
 ### PRODUCT INDEX
 GET http://localhost:3000/products.json 
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzEyMTQ3Mjl9.fVXo-nulpQMKvIRlKZN8IkkVXukVLX-0HadbnFoy5MI"
+
 
 ### PRODUCT SHOW
 GET http://localhost:3000/products/5.json
@@ -64,8 +66,8 @@ POST http://localhost:3000/users.json
 Content-Type: application/json
 
 {
-  "name": "Test name",
-  "email": "test@test.com",
+  "name": "Ryan",
+  "email": "Ryan@test.com",
   "password": "password"
 }
 ### USER LOG IN
@@ -77,3 +79,36 @@ Content-Type: application/json
   "email": "test@test.com",
   "password": "password"
 }
+
+
+### CREATE ORDER
+POST http://localhost:3000/orders.json 
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzE1Njc4NDd9.lyJmJflYyVrlKp9tD8MWTSAjBtNB2MXXwErs-99MLyY 
+
+{
+  "product_id": "24",
+  "quantity": "2"
+}
+
+### SHOW ORDER
+GET http://localhost:3000/orders/1.json
+
+### INDEX ORDER
+GET http://localhost:3000.orders.json 
+
+
+### Carted Product CREATE
+POST http://localhost:3000/carted_product.json 
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzE2NDUxMjB9.dk1fTuSL6p-zxZrnidVOCC6Nfr96ejnbrvBU3ik7usw
+
+{
+  "product_id": "5",
+  "quantity": "3"
+}
+
+### CARTED PRODUCT INDEX
+GET http://localhost:3000/carted_product.json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzE2NDUxMjB9.dk1fTuSL6p-zxZrnidVOCC6Nfr96ejnbrvBU3ik7usw
