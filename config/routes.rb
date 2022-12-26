@@ -29,6 +29,7 @@ Rails.application.routes.draw do
 
 ### Carted product
   post "/carted_product" => "carted_product#create"
-  get "carted_product" => "carted_product#index"
+  get "/carted_product" => "carted_product#index"
+  delete "/carted_product/:id" => "carted_product#destroy"
 end
 

@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
   def create 
     if current_user
       carted_products = current_user.carted_products.where(status: "carted")
-      subtotal = carted_products.map { |carted_product| carted_product.product.price * carted_product.quantity }
+      subtotal = carted_products.map { |carted_product| carted_product.product.price * carted_product.quantity }.reduce
       tax = 0.09 * subtotal
       total = subtotal + tax 
 
@@ -26,8 +26,8 @@ class OrdersController < ApplicationController
       total: total
       )
       if order.save
-        
-        render json: {message: "Thank you"}
+        carted_product.update_all(order_id: order_id, status: "purchased")
+        render json: order.as_json
       else 
         render json: order.error.full_message
       end 
